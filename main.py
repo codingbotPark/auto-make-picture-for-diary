@@ -64,8 +64,8 @@ for idx,name in enumerate(fileList):
         pic.width = round((Inches(1.3) * (width / height)))
 
 
-    pic.left = Inches(0.2)
-    pic.top = Inches(-0.2)
+    # pic.left = Inches(0.2)
+    # pic.top = Inches(-0.2)
     # if (height > width):
     #     pic.rotation = 90
     #     # 가로 세로 변경
@@ -73,8 +73,6 @@ for idx,name in enumerate(fileList):
     #     pic.height = Inches(1.3)
     #     # 비율에 맞게 사진 비율을 변경시켜야 한다
     #     pic.width = Inches()
-
-
 
 
 # C:\Users\DGSW\Desktop\다이어리사진
