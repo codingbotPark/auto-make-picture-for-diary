@@ -45,13 +45,11 @@ for imagename in fileList:
 pointerLeft = 0
 pointerTop = 0
 
-imagese = []
 
 
 for idx,name in enumerate(fileList):
     # left, top, 너비, 높이
     pic = slide.shapes.add_picture(path+"\\"+name,Cm(pointerLeft),Cm(pointerTop),Cm(3.3)) # 3.3
-    imagese.append(pic)
     width,height = pic.image.size
 
 
@@ -62,7 +60,7 @@ for idx,name in enumerate(fileList):
     else: # width를 추가
         isOver += 3.3
 
-    # 슬라이드를 넘으면
+    # 슬라이드 끝을 넘으면
     if (isOver > 29.7):
         pointerLeft = 0
         pointerTop += 3.3
@@ -70,7 +68,16 @@ for idx,name in enumerate(fileList):
         pic.left = Cm(pointerLeft)
         pic.top = Cm(pointerTop)
 
+        # 슬라이드를 다 쓰면
+        if pointerTop+3.3 > 21:
+            pointerTop = 0
+            pointerLeft = 0
 
+            pic = pic._element
+            pic.getparent().remove(pic)
+
+            slide = prs.slides.add_slide(prs.slide_layouts[6]) # 슬라이드 추가
+            pic = slide.shapes.add_picture(path+"\\"+name,Cm(pointerLeft),Cm(pointerTop),Cm(3.3)) # 3.3
 
     heightCM = 0
     widthCM = 0

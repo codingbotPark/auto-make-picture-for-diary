@@ -238,3 +238,46 @@ for imagename in fileList:
 [Image.open](https://89douner.tistory.com/310)함수는 사진을 읽어서 정보를 어디 저장한다고 한다, 잘은 모르겠다^^
 
 > 해치운건가.. 파이썬 자동화를 만들 때마다 드는 생각인데, 다 짠 코드를 보면 양이 생각보다 많지않다, 그만큼 파이썬이 간편하게 어떤 일을 하게 하는 것 같다, **자료가 적고, 영어고, 단위계산이 필요한 작업이라서 힘들었던 것 같다, 그래도 감을 잡으니 할만해졌다**
+
+### 11. 슬라이드 넘기기
+**아, 생각해보니 슬라이드를 넘었을 때 처리를 안 해줬다**    
+
+슬라이드 줄 바꿈에서 아래의 코드를 추가했다
+
+```py
+# 슬라이드 끝을 넘으면
+if (isOver > 29.7):
+    pointerLeft = 0
+    pointerTop += 3.3
+
+    pic.left = Cm(pointerLeft)
+    pic.top = Cm(pointerTop)
+
+    # 슬라이드를 다 쓰면
+    if pointerTop+3.3 > 21:
+        slide = prs.slides.add_slide(prs.slide_layouts[6]) # 슬라이드 추가
+
+        pointerTop = 0
+        pointerLeft = 0
+
+        pic = pic._element
+        pic.getparent().remove(pic)
+
+        pic = slide.shapes.add_picture(path+"\\"+name,Cm(pointerLeft),Cm(pointerTop),Cm(3.3)) # 3.3
+
+```
+
+이미지의 세로는 `3.3` 으로 고정되어 있기 때문에 3.3을 더해서 `pointerTop+3.3 > 21` 로 조건을 달았다, 
+
+아래에서는 `pointer` 들을 0으로 맞추고
+
+```py
+pic = pic._element
+pic.getparent().remove(pic)
+```
+
+위의 코드로 마지막 넘어간 사진을 삭제해주고 그 아래의 코드에서 다시 다음 슬라이드에서 추가해준다
+
+![결과](https://user-images.githubusercontent.com/85085375/178919958-313de48f-ac89-4ba8-b071-317c832f5b7c.png)
+
+> 다음 슬라이드에 잘 추가되는 것을 확인할 수 있다, 이젠 정말 해치웠다, 내가 코딩을 안했다면 이걸 다 손으로 했을 건데ㅋㅋㅋ 코딩을 잘 했다는 생각이 든다ㅋㅋㅋ, 다이어리 열심히 쓰자
