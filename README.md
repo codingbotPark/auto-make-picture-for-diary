@@ -8,3 +8,5 @@
 ![확인](https://user-images.githubusercontent.com/85085375/178999149-dcebd34c-d5ab-41ff-8eea-14124acf43c0.gif)
 
 [자세한 개발 과정은 이 글](https://github.com/codingbotPark/auto-make-picture-for-diary/blob/main/v1/README.md)에 있습니다
+
+![image](https://user-images.githubusercontent.com/85085375/180642932-18926f98-8a31-4816-9e07-58d8cc8ee5be.png)
