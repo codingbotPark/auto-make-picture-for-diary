@@ -58,7 +58,7 @@ for idx,name in enumerate(fileList):
     if (height > width): # 세로가 더 클 땐 height를 추가
         isOver += 3.3 * (height / width)
     else: # width를 추가
-        isOver += 3.3
+        isOver += 3.3 * (width / height)
 
     # 슬라이드 끝을 넘으면
     if (isOver > 29.7):
